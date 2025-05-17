@@ -15,8 +15,8 @@ Web application that composes and publishes visually rich, interactive travel it
 - Third-party data sources: mapping, location, media
 - Containerized deployment, cloud-agnostic
 
-## Milestone 0
-Repository scaffold only. No functional code.
+## Milestone 1
+Initial static server with simple web page.
 
 ## Contribution Guidelines
 1. Fork → branch → pull request.
