@@ -18,10 +18,24 @@ Web application that composes and publishes visually rich, interactive travel it
 ## Milestone 1
 Initial static server with simple web page.
 
+## Development Server
+Run `node dev.js` to start the development environment. It automatically reloads on changes.
+
+## API Usage
+Use the example commands below to interact with the itinerary API.
+```bash
+curl http://localhost:3000/api/itinerary
+curl -X POST http://localhost:3000/api/itinerary -d '{"days":3}'
+```
+
+
 ## Contribution Guidelines
 1. Fork → branch → pull request.
 2. Lint + unit tests mandatory.
 3. Reference issue numbers in commits.
+## Running Tests
+Install Node and run `npm test` to execute the test suite.
+
 
 ## License
 MIT
