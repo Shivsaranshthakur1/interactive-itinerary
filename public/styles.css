@@ -10,3 +10,12 @@ body {
   background: #fff;
   border: 1px solid #ddd;
 }
+
+#add-form {
+  margin-bottom: 1rem;
+}
+
+#add-form input {
+  margin-right: 0.5rem;
+  padding: 0.25rem;
+}
