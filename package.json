@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
+    "dev": "node dev.js",
     "lint": "node lint.js",
-    "test": "node test/test.js"
+    "test": "node test/run.js"
   },
   "keywords": [],
   "author": "",
