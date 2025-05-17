@@ -18,6 +18,9 @@ Web application that composes and publishes visually rich, interactive travel it
 ## Milestone 1
 Initial static server with simple web page.
 
+## Development
+Run `npm run dev` during development to start the server with automatic restarts when files in `public/` or `server.js` change.
+
 ## Contribution Guidelines
 1. Fork → branch → pull request.
 2. Lint + unit tests mandatory.

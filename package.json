@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "lint": "node lint.js",
-    "test": "node test/test.js"
+    "test": "node test/test.js",
+    "dev": "node dev.js"
   },
   "keywords": [],
   "author": "",
