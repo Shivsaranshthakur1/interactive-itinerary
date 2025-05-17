@@ -1,0 +1,14 @@
+{
+  "name": "interactive-itinerary",
+  "version": "1.0.0",
+  "description": "## Objective Web application that composes and publishes visually rich, interactive travel itineraries through unique shareable links.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "lint": "node lint.js",
+    "test": "node test/test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
