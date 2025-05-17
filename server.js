@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { URL } = require('url');
 
 const port = process.env.PORT || 3000;
 
@@ -13,8 +14,42 @@ const mimeTypes = {
   '.jpg': 'image/jpg'
 };
 
+// In-memory storage for itinerary items
+let itineraries = [];
+
+function handleApi(req, res, parsedUrl) {
+  if (req.method === 'GET' && parsedUrl.pathname === '/api/itinerary') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(itineraries));
+    return true;
+  }
+
+  if (req.method === 'POST' && parsedUrl.pathname === '/api/itinerary') {
+    let body = '';
+    req.on('data', chunk => { body += chunk; });
+    req.on('end', () => {
+      try {
+        const item = JSON.parse(body || '{}');
+        itineraries.push(item);
+        res.writeHead(201, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(item));
+      } catch (err) {
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Invalid JSON' }));
+      }
+    });
+    return true;
+  }
+
+  return false;
+}
+
 const server = http.createServer((req, res) => {
-  let filePath = path.join(__dirname, 'public', req.url === '/' ? 'index.html' : req.url);
+  const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
+
+  if (handleApi(req, res, parsedUrl)) return;
+
+  let filePath = path.join(__dirname, 'public', parsedUrl.pathname === '/' ? 'index.html' : parsedUrl.pathname);
 
   const ext = path.extname(filePath);
   const contentType = mimeTypes[ext] || 'application/octet-stream';
